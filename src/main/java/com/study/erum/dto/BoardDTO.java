@@ -1,4 +1,4 @@
-package com.study.erum;
+package com.study.erum.dto;
 
 import lombok.Getter;
 import lombok.Setter;

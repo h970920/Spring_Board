@@ -1,4 +1,4 @@
-package controller;
+package com.study.erum;
 
 import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Controller;

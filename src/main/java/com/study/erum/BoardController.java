@@ -39,7 +39,7 @@ public class BoardController {
     }
     
     
-    @GetMapping("/")
+    @GetMapping("/list")
     public String findAll(Model model) {
         List<BoardDTO> boardDTOList = boardService.findAll();
         model.addAttribute("boardList", boardDTOList);
@@ -48,9 +48,11 @@ public class BoardController {
 
     @GetMapping
     public String findById(@RequestParam("id") Long id, Model model) {
+    	boardService.updateHits(id);
         BoardDTO boardDTO = boardService.findById(id);
         model.addAttribute("board", boardDTO);
         return "detail";
     }
-
+    
+    
 }

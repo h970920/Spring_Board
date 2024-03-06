@@ -4,7 +4,7 @@
     <title>save</title>
 </head>
 <body>
-<form action="/board/list" method="post">
+<form action="/board/save" method="post">
     <input type="text" name="boardWriter" placeholder="작성자"><br><br>
     <input type="text" name="boardPass" placeholder="비밀번호"><br><br>
     <input type="text" name="boardTitle" placeholder="제목"><br><br>

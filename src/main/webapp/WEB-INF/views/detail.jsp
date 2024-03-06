@@ -36,7 +36,7 @@
 </body>
 <script>
     const listFn = () => {
-        location.href = "/board/";
+        location.href = "/board/list";
     }
     const updateFn = () => {
         const id = '${board.id}';

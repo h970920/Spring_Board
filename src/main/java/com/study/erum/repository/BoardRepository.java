@@ -1,9 +1,13 @@
 package com.study.erum.repository;
 
-import com.study.erum.dto.BoardDTO;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
+
+import com.study.erum.dto.BoardDTO;
+
+import lombok.RequiredArgsConstructor;
 
 @Repository
 @RequiredArgsConstructor
@@ -11,6 +15,14 @@ public class BoardRepository {
     private final SqlSessionTemplate sql;
 
     public int save(BoardDTO boardDTO) {
-        return sql.insert("Board.save", boardDTO);
+        return sql.insert("Board.insert", boardDTO);
     }
+    public List<BoardDTO> findAll() {
+        return sql.selectList("Board.findAll");
+    }
+
+    public BoardDTO findById(Long id) {
+        return sql.selectOne("Board.findById", id);
+    }
+
 }

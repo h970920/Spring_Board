@@ -33,6 +33,10 @@
   		set @COUNT=0;
   		update board_table set id = @COUNT :=@COUNT +1;
 	</update>
+	
+	<select id="pagingList" parameterType="java.util.HashMap" resultType="board">
+        select * from board_table order by id desc limit #{start}, #{limit}
+    </select>
     
     
 </mapper> 

@@ -1,6 +1,8 @@
 package com.study.erum.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -43,6 +45,18 @@ public class BoardService {
         boardRepository.resetAutoIncrement();
     }
 
+    int pageLimit = 3;
+    int blockLimit = 3;
+    public List<BoardDTO> pageList(int page) {
+       
+        int pagingStart = (page - 1) * pageLimit;
+        Map<String, Integer> pagingParams = new HashMap<>();
+        pagingParams.put("start", pagingStart);
+        pagingParams.put("limit", pageLimit);
+        List<BoardDTO> pagingList = boardRepository.pagingList(pagingParams);
+
+        return pagingList;
+    }
 
 
 }

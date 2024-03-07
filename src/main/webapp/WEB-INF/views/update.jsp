@@ -17,7 +17,7 @@
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        input[type="text"],
+        input[type="text"],input[type="password"],
         textarea {
             width: calc(100% - 20px);
             padding: 10px;

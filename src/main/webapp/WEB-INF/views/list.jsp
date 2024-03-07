@@ -40,6 +40,24 @@
             display: block;
             margin-top: 20px;
         }
+        
+        .button-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -63,6 +81,14 @@
             </tr>
         </c:forEach>
     </table>
-    <a href="/board/save" class="add-link">글작성</a>
+  <div class="button-container">
+  				  <button onclick="saveFn()">글쓰기</button>
+	</div>
+	
+	<script type="text/javascript">
+		const saveFn= () => {
+			location.href = "/board/save";
+		}
+	</script>
 </body>
 </html>

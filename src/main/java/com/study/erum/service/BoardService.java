@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.study.erum.dto.BoardDTO;
+import com.study.erum.dto.PageDTO;
 import com.study.erum.repository.BoardRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -45,8 +46,8 @@ public class BoardService {
         boardRepository.resetAutoIncrement();
     }
 
-    int pageLimit = 3;
-    int blockLimit = 3;
+    int pageLimit = 5;
+    int blockLimit = 5;
     public List<BoardDTO> pageList(int page) {
        
         int pagingStart = (page - 1) * pageLimit;
@@ -57,6 +58,26 @@ public class BoardService {
 
         return pagingList;
     }
+    public PageDTO pagingParam(int page) {
+        // 전체 글 갯수 조회
+        int boardCount = boardRepository.boardCount();
+        // 전체 페이지 갯수 계산(10/3=3.33333 => 4)
+        int maxPage = (int) (Math.ceil((double) boardCount / pageLimit));
+        // 시작 페이지 값 계산(1, 4, 7, 10, ~~~~)
+        int startPage = (((int)(Math.ceil((double) page / blockLimit))) - 1) * blockLimit + 1;
+        // 끝 페이지 값 계산(3, 6, 9, 12, ~~~~)
+        int endPage = startPage + blockLimit - 1;
+        if (endPage > maxPage) {
+            endPage = maxPage;
+        }
+        PageDTO pageDTO = new PageDTO();
+        pageDTO.setPage(page);
+        pageDTO.setMaxPage(maxPage);
+        pageDTO.setStartPage(startPage);
+        pageDTO.setEndPage(endPage);
+        return pageDTO;
+    }
+
 
 
 }

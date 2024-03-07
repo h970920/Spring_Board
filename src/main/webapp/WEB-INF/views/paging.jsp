@@ -3,6 +3,39 @@
 <html>
 <head>
     <title>paging</title>
+    
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+        
+        .pn {
+        	text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+        }
+        </style>
 </head>
 <body>
 <div>
@@ -28,7 +61,7 @@
     </table>
 </div>
 
-<div>
+<div class= "pn">
     <c:choose>
         <%-- 현재 페이지가 1페이지면 이전 글자만 보여줌 --%>
         <c:when test="${paging.page<=1}">

@@ -45,7 +45,26 @@
         a:hover {
             text-decoration: underline;
         }
+               .button-container {
+            text-align: center;
+            margin-top: 50px;
+        }
         
+        
+        
+        button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
      
         
         
@@ -74,6 +93,12 @@
         </c:forEach>
     </table>
 </div>
+  <div class="button-container">
+  				  <button onclick="saveFn()">글쓰기</button>
+  				  <button onclick="listFn()">목록</button>
+	</div>
+	
+
 
 <ul class= "pn">
     <c:choose>
@@ -110,5 +135,17 @@
         </c:otherwise>
     </c:choose>
 </ul>
+
+<script type="text/javascript">
+
+		const saveFn= () => {
+			location.href = "/board/save";
+		}
+		
+		const listFn = () => {
+			location.href = "/board/list";
+			
+		}
+</script>
 </body>
 </html>

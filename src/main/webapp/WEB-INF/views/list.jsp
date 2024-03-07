@@ -83,11 +83,17 @@
     </table>
   <div class="button-container">
   				  <button onclick="saveFn()">글쓰기</button>
+  				  <button onclick="pagingFn()">페이징목록</button>
 	</div>
 	
 	<script type="text/javascript">
 		const saveFn= () => {
 			location.href = "/board/save";
+		}
+		
+		const pagingFn = () => {
+			location.href = "/board/paging";
+			
 		}
 	</script>
 </body>

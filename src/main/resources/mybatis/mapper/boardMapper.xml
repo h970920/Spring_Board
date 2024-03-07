@@ -28,5 +28,11 @@
         where id=#{id}
     </update>
     
+  	<update id="resetAutoIncrement" parameterType="map">
+  		ALTER TABLE board_table AUTO_INCREMENT = 1;
+  		set @COUNT=0;
+  		update board_table set id = @COUNT :=@COUNT +1;
+	</update>
+    
     
 </mapper> 

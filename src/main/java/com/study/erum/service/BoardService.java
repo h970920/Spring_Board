@@ -39,6 +39,11 @@ public class BoardService {
         boardRepository.update(boardDTO);
     }
 
+    public void resetAutoIncrement() {
+        boardRepository.resetAutoIncrement();
+    }
+
+
 
 }
 

@@ -56,7 +56,7 @@ public class BoardController {
     @GetMapping("/delete")
     public String delete(@RequestParam("id") Long id) {
         boardService.delete(id);
-        return "redirect:/board/";
+        return "redirect:/board/list";
     }
     
     @GetMapping("/update")
@@ -75,6 +75,20 @@ public class BoardController {
 //        return "redirect:/board?id="+boardDTO.getId(); // 조회수 증가
     }
 
+    @GetMapping("/resetAutoIncrement")
+    public String resetAutoIncrement() {
+        boardService.resetAutoIncrement();
+        return "redirect:/board/list";
+    }
+
+    // /board/paging?page=2
+    // 처음 페이지 요청은 1페이지를 보여줌
+    @GetMapping("/paging")
+    public String paging(Model model,
+    @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
+        System.out.println("page = " + page);
+        return "index";
+    }
     
     
 }

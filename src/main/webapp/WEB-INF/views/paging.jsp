@@ -31,10 +31,24 @@
         }
         
         .pn {
+       
         	text-align: center;
-            margin-top: 50px;
             padding: 20px;
+            list-style : none;
+   		
         }
+        
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+     
+        
+        
         </style>
 </head>
 <body>
@@ -61,7 +75,7 @@
     </table>
 </div>
 
-<div class= "pn">
+<ul class= "pn">
     <c:choose>
         <%-- 현재 페이지가 1페이지면 이전 글자만 보여줌 --%>
         <c:when test="${paging.page<=1}">
@@ -95,6 +109,6 @@
             <a href="/board/paging?page=${paging.page+1}">[다음]</a>
         </c:otherwise>
     </c:choose>
-</div>
+</ul>
 </body>
 </html>

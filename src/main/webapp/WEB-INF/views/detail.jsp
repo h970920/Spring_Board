@@ -8,6 +8,7 @@
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
+
         }
         table {
             width: 50%;
